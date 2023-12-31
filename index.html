@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speech To Text</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      svg {
+        width: 50px;
+        height: 50px;
+      }
+
+      .listening {
+        stroke: red;
+        animation: pulse 0.7s infinite ease-in-out;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.15);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="keyword" placeholder="Start Typing..." />
+    <svg
+      onclick="runSpeechRecog()"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      id="micIcon"
+      class="micIcon w-6 h-6"
+      style="
+        width: 24px;
+        padding: 10px 2px;
+        background: transparent;
+        stroke: b;
+        olor-interpolation: sRGB;
+        ursor: pointer;
+      "
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z"
+      ></path>
+    </svg>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
