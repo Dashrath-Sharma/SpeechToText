@@ -67,7 +67,6 @@ export class SpeechToText {
         // Step-2: Create instance;
         this.#speechRecognition = new SpeechRecognition();
         this.#speechRecognition.interimResults = true;
-        this.#speechRecognition.continuous = true;
         // Step-3: add 'result' listener;
         this.#speechRecognition.addEventListener('result', event => {
             const transcript = this.#extractTranscript(event);
