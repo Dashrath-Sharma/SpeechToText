@@ -95,7 +95,7 @@ export class SpeechToText {
             return;
         }
 
-        this.#outputElement.value += this.activeText;
+        this.#outputElement.innerText += this.activeText;
     }
 
     #optionsNullCheck(options){
