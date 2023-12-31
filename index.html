@@ -12,9 +12,11 @@
       }
       body {
         display: flex;
-        justify-content: center;
+        justify-content: start;
         align-items: center;
+        flex-direction: column-reverse;
         height: 100vh;
+        padding-top: 1em;
       }
 
       svg {
@@ -39,7 +41,8 @@
     </style>
   </head>
   <body>
-    <input type="text" id="keyword" placeholder="Start Typing..." />
+<!--     <input type="text" id="keyword" placeholder="Start Typing..." /> -->
+    <div id="keyword"></div>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
