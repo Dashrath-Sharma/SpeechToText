@@ -71,12 +71,9 @@ export class SpeechToText {
         this.#speechRecognition.interimResults = true;
         // Step-3: add 'result' listener;
         this.#speechRecognition.addEventListener('result', event => {
-            let tempSpeech = [];
             const transcript = this.#extractTranscript(event);
-            tempSpeech = transcript;
-            if(tempSpeech.match(/[^\s]/gi)?.length != null){
+            if(transcript.match(/[^\s]/gi)?.length != null){
                 this.activeText = ' ' + transcript;
-                tempSpeech = [];
             }
         });
 
