@@ -1,3 +1,5 @@
+// speechtotext.js
+
 export class SpeechToText {
     #micElement;
     #outputElement;
@@ -69,12 +71,15 @@ export class SpeechToText {
         this.#speechRecognition.interimResults = true;
         // Step-3: add 'result' listener;
         this.#speechRecognition.addEventListener('result', event => {
+            let tempSpeech = [];
             const transcript = this.#extractTranscript(event);
-            console.log('Output: ', transcript);
-            this.activeText = ' ' + transcript;
+            tempSpeech = transcript;
+            if(tempSpeech.match(/[^\s]/gi)?.length != null){
+                this.activeText = ' ' + transcript;
+                tempSpeech = [];
+            }
         });
 
-        // this.#speechRecognition.start();
         // Restart speech recognition on end
         this.#speechRecognition.addEventListener('end', this.#onRecognitionEnd.bind(this));
     }
@@ -96,6 +101,7 @@ export class SpeechToText {
         }
 
         this.#outputElement.innerText += this.activeText;
+        this.activeText = '';
     }
 
     #optionsNullCheck(options){
@@ -114,7 +120,6 @@ export class SpeechToText {
 
     #addEventListener() {
         this.#micElement.addEventListener('click', this.toggleListen.bind(this));
-        // this.#micElement.addEventListener('click', this.showOutput.bind(this));
     }
 
     toggleListen() {
