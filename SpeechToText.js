@@ -124,7 +124,7 @@ export class SpeechToText {
             this.stopRecognition();
         } else {
             this.startRecognition();
-            setTimeout(() => this.stopRecognition(), 5000);
+            setTimeout(() => this.stopRecognition(), 10000);
         }
     }
 
